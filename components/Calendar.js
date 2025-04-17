@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     dayContainer: {
-        width: '14.28%',
+        width: '14.28%',  //100% ширини дільнути на 7
         height: 48,
         justifyContent: 'center',
         alignItems: 'center',
@@ -166,5 +166,7 @@ const styles = StyleSheet.create({
 
 })
 //стилі дав пан gpt(тільки для хедеру і його вмісту, бо не встигав(але хоча б гарно).
+
+//upd: дописав хедер сам
 
 export default Calendar;
