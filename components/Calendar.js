@@ -6,13 +6,12 @@ const monthName = ['Січень', 'Лютий', 'Березень', 'Квіте
 
 const Header = ({date, onPrev, onNext, onToday}) => (
     <View style={styles.header}>
-        <Pressable onPress={onPrev} style={styles.headerButton}><Text
-            style={styles.headerButtonText}>◀</Text></Pressable>
         <Text style={styles.headerText}>{monthName[date.getMonth()]} {date.getFullYear()}</Text>
-        <Pressable onPress={onNext} style={styles.headerButton}><Text
-            style={styles.headerButtonText}>▶</Text></Pressable>
-        <Pressable onPress={onToday}><Text style={styles.todayButton}>Сьогодні</Text></Pressable>
-
+        <View style={styles.headerControls}>
+            <Pressable onPress={onNext} style={styles.headerButton}><Text style={styles.headerButtonText}>△</Text></Pressable>
+            <Pressable onPress={onPrev} style={styles.headerButton}><Text style={styles.headerButtonText}>▽</Text></Pressable>
+            <Pressable onPress={onToday}><Text style={styles.todayButton}>Сьогодні</Text></Pressable>
+        </View>
     </View>
 )
 
@@ -92,19 +91,22 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 16,
-        backgroundColor: '#ff7f00',
         borderRadius: 12,
     },
     headerButton: {
         padding: 8,
     },
+    headerControls: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     headerButtonText: {
         color: '#fff',
-        fontSize: 20,
+        fontSize: 22,
     },
     headerText: {
         color: '#fff',
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     dayContainer: {
@@ -142,11 +144,10 @@ const styles = StyleSheet.create({
     },
     todayButton: {
         color: '#fff',
-        borderColor: '#ffa600',
+        borderColor: '#ff7f00',
         borderWidth: 2,
         borderRadius: 20,
         padding: 10,
-        backgroundColor: '#ea7400',
     },
     daysRow: {
         flexDirection: 'row',
